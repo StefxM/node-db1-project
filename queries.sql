@@ -20,7 +20,9 @@ WHERE City = 'London' OR City='Madrid' OR Country='Brazil';
 INSERT into Customers('CustomerName', 'ContactName', 'Address', 'City', 'PostalCode', 'Country')
 VALUES ('The Shire', 'Bilbo Baggins', '1 Hobbit-Hole', 'Bag End', '111', 'Middle Earth');
 -- Update Bilbo Baggins record so that the postal code changes to "11122"
-
+UPDATE CUSTOMERS
+SET PostalCode = '11122'
+WHERE CustomerName = 'Bilbo Baggins';
 -- (Stretch) Find a query to discover how many different cities are stored in the Customers table. Repeats should not be double counted
 
 -- (Stretch) Find all suppliers who have names longer than 20 characters. You can use `length(SupplierName)` to get the length of the name
