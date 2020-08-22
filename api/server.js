@@ -6,7 +6,7 @@ const server = express();
 
 server.use(express.json());
 
-server.get('/api/accounts', async (req,res, next) => {
+server.get('/api/accounts', async(req,res, next) => {
    try {
        const accounts = await db.select("*").from("accounts")
 
@@ -16,7 +16,7 @@ server.get('/api/accounts', async (req,res, next) => {
    }
 })
 
-server.get('/api/accounts/:id', async (req,res, next) => {
+server.get('/api/accounts/:id', async(req,res, next) => {
     try {
         const [account] = await db
         .select("*")
@@ -29,7 +29,7 @@ server.get('/api/accounts/:id', async (req,res, next) => {
         next(err)
     }
  })
-server.post('/api/accounts', async (req,res,next) => {
+server.post('/api/accounts', async(req,res,next) => {
     try {
         const [id] = await db
             .insert({
@@ -48,7 +48,7 @@ server.post('/api/accounts', async (req,res,next) => {
     }
 })
 
-server.put('/api/accounts/:id', async (req,res,next) => {
+server.put('/api/accounts/:id', async(req,res,next) => {
    try {
        await db("accounts")
         .update({
@@ -67,7 +67,7 @@ server.put('/api/accounts/:id', async (req,res,next) => {
    }
 })
 
-server.delete('/api/accounts/:id', (req,res,next) => {
+server.delete('/api/accounts/:id', async(req,res,next) => {
     try{
         await db("accounts")
             .where("id", req.params.id)
